@@ -81,3 +81,4 @@ const part2 = inputArray
   .reduce((acum, current) => acum + ~~current, 0)
 
 console.log(part2)
+
