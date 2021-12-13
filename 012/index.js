@@ -49,12 +49,12 @@ const getPaths = (from, visited, twice = false) => {
   const caveCount = (visited.get(from) || 0) + 1
   visited.set(from, caveCount)
 
-  if (!from.isBig && caveCount > 1) twice = true
+  const isTwice = (!from.isBig && caveCount > 1) || twice
 
   const paths = from.connections
     .filter(next => next !== start)
-    .filter(filterPart[part](visited, twice))
-    .flatMap(next => getPaths(next, visited, twice))
+    .filter(filterPart[part](visited, isTwice))
+    .flatMap(next => getPaths(next, visited, isTwice))
     .map(path => [from.name, path].join(','))
 
   if (~~part === 1) visited.delete(from)
