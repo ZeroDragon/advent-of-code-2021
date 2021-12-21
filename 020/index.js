@@ -35,10 +35,7 @@ function solution (steps) {
     enhancedImage = []
   }
 
-  return image
-    .join('')
-    .split('')
-    .filter((s) => s === '#').length
+  return image.join('').match(/#/g).length
 }
 
 console.log('2021 Day 20 - part 1:', solution(2))
